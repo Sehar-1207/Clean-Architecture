@@ -1,0 +1,59 @@
+﻿@model ParadisePlannerResorts.Models.ViewModel.ResortNoVm
+
+<div class="w-100 card border-0 p-2">
+    <div class="card-header bg-success bg-gradient mg-0 py-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Resort No</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body border p-2">
+        <form asp-action="Create" method="post" class="row">
+            @Html.AntiForgeryToken()
+            <div class="p-2">
+
+                @* <input asp-for="ResortNo.Id" />
+                <label asp-for="ResortNo.Id" class="ms-2"></label> *@
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="ResortNo.ResortId" asp-items="Model.list" class="form-select border shadow">
+                        <option value="">--Select Resort--</option>
+                    </select>
+                    <label asp-for="ResortNo.ResortId" class="ms-2"></label>
+                    <span asp-validation-for="ResortNo.ResortId" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ResortNo.Resort_No" class="form-control border shadow" />
+                    <label asp-for="ResortNo.Resort_No" class="ms-2"></label>
+                    <span asp-validation-for="ResortNo.Resort_No" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ResortNo.SpecialDetail" class="form-control border shadow" />
+                    <label asp-for="ResortNo.SpecialDetail" class="ms-2"></label>
+                    <span asp-validation-for="ResortNo.SpecialDetail" class="text-danger"></span>
+                </div>
+
+                <div class="row pt-2 justify-content-center">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-check-circle"></i> Create
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="ResortNo" asp-action="Index" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

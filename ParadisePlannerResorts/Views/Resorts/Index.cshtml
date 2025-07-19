@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ParadisePlanner.Domain.Entities.Resort>
+
+<div class="d-flex justify-content-center mt-4">
+    @* Center horizontally *@
+    <div class="w-100 card border-0 p-2" style="max-width: 1100px;">
+        @* Limit width for nicer layout *@
+        <div class="card-header bg-success bg-gradient mg-0 py-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Resort List</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body border p-2">
+            <div class="row pb-2">
+                <div class="col-6 offset-6 text-end">
+                    <a asp-action="Create" asp-controller="Resorts" class="btn btn-secondary mb-2">
+                        <i class="bi bi-plus-circle"></i> Add New Resort
+                    </a>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Sqft</th>
+                        <th>Occupancy</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Resort in Model)
+                    {
+                        <tr>
+                            <td>@Resort.Name</td>
+                            <td>@Resort.Price.ToString("C")</td>
+                            <td>@Resort.Sqft</td>
+                            <td>@Resort.Occupancy</td>
+                            <td>
+                                <div class="justify-content-center">
+                                    <a asp-action="Update" asp-route-id="@Resort.Id" class="btn btn-sm btn-success">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@Resort.Id" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

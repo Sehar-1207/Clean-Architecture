@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ParadisePlanner.Domain.Entities.Amenity>
+
+<div class="d-flex justify-content-center mt-4">
+    <div class="w-100 card border-0 p-2" style="max-width: 1100px;">
+
+        <div class="card-header bg-success bg-gradient mg-0 py-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Amenity List</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body border p-2">
+            <div class="row pb-2">
+                <div class="col-6 offset-6 text-end">
+                    <a asp-action="Create" asp-controller="Amenity" class="btn btn-secondary mb-2">
+                        <i class="bi bi-plus-circle"></i> Add New Amenity
+                    </a>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table">
+                    <tr>
+                        <th>Amenity Id</th>
+                        <th>Amenity Name</th>
+                        <th>Resort Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Amenity in Model)
+                    {
+                        <tr>
+                            <td>@Amenity.Id</td>
+                            <td>@Amenity.Name</td>
+                            <td>@Amenity.Resorts.Name</td>
+                            <td>
+                                <div class="justify-content-center">
+                                    <a asp-action="Update" asp-controller="Amenity" asp-route-id="@Amenity.Id" class="btn btn-sm btn-success">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="Amenity" asp-route-id="@Amenity.Id" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

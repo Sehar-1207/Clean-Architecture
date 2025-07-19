@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ParadisePlanner.Domain.Entities.ResortNo>
+
+<div class="d-flex justify-content-center mt-4">
+    <div class="w-100 card border-0 p-2" style="max-width: 1100px;">
+
+        <div class="card-header bg-success bg-gradient mg-0 py-2">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Resort Number List</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body border p-2">
+            <div class="row pb-2">
+                <div class="col-6 offset-6 text-end">
+                    <a asp-action="Create" asp-controller="ResortNo" class="btn btn-secondary mb-2">
+                        <i class="bi bi-plus-circle"></i> Add New ResortNo
+                    </a>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-striped">
+                <thead class="table">
+                    <tr>
+                        <th>Resort Name</th>
+                        <th>Resort No</th>
+                        <th>Special Detail</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ResortNo in Model)
+                    {
+                        <tr>
+                            <td>@ResortNo.Resorts.Name</td>
+                            <td>@ResortNo.Resort_No</td>
+                            <td>@ResortNo.SpecialDetail</td>
+                            <td>
+                                <div class="justify-content-center">
+                                    <a asp-action="Update" asp-controller="ResortNo" asp-route-id="@ResortNo.Id" class="btn btn-sm btn-success">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="ResortNo" asp-route-id="@ResortNo.Id" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

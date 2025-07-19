@@ -1,0 +1,48 @@
+﻿@model ParadisePlannerResorts.Models.ViewModel.ResortNoVm
+
+<div class="w-100 card border-0 p-2">
+    <div class="card-header bg-danger bg-gradient py-2">
+        <h2 class="text-white text-center py-2">Delete Resort Number</h2>
+    </div>
+
+    <div class="card-body border p-2">
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="ResortNo.Id" />
+
+            <div class="form-floating py-2 col-12">
+                <select asp-for="ResortNo.ResortId" asp-items="Model.list" disabled class="form-select border shadow">
+                    <option disabled selected>--Select Resort--</option>
+                </select>
+                <label asp-for="ResortNo.ResortId"></label>
+            </div>
+
+            <div class="form-floating py-2 col-12">
+                <input asp-for="ResortNo.Resort_No" disabled class="form-control border shadow" />
+                <label asp-for="ResortNo.Resort_No"></label>
+            </div>
+
+            <div class="form-floating py-2 col-12">
+                <input asp-for="ResortNo.SpecialDetail" disabled class="form-control border shadow" />
+                <label asp-for="ResortNo.SpecialDetail"></label>
+            </div>
+
+            <div class="row pt-2 justify-content-center">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-danger w-100">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a asp-action="Index" class="btn btn-secondary w-100">
+                        <i class="bi bi-x-circle"></i> Cancel
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

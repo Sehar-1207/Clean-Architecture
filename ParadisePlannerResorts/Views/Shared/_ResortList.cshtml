@@ -1,0 +1,96 @@
+﻿@model ParadisePlannerResorts.Models.ViewModel.HomeVm;
+
+<div id="ResortsList">
+    <div class="row px-lg-5 m-lg-4 m-sm-0 px-sm-0" style="--bs-gutter-x:0">
+        @foreach (var resort in Model.ResortList)
+        {
+            <div class="p-4 col-md-12 col-lg-6">
+                <div class="row" style="border-radius:5px; border: 1px solid #aaa;">
+                    <!-- Resort Image -->
+                    <div class="col-4 p-2">
+                        <img class="d-block w-100 rounded" src="@resort.ImageUrl" alt="Resort image">
+                    </div>
+
+                    <!-- Resort Details -->
+                    <div class="col-8">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p class="card-title text-success fs-4">@resort.Name</p>
+                            <button type="button" class="btn btn-sm btn-outline-primary mt-1"
+                                    data-bs-toggle="modal" data-bs-target="#resortModal-@resort.Id">
+                                Details
+                            </button>
+                        </div>
+                        <p class="card-text">
+                            @Html.Raw(resort.Description)
+                        </p>
+                    </div>
+
+                    <!-- Footer: Booking Info -->
+                    <div class="col-12">
+                        <div class="row pb-3 pt-2">
+                            <!-- Book Button -->
+                            <div class="col-4">
+                                @if (Model.CheckInDate > DateOnly.FromDateTime(DateTime.Now))
+                                {
+                                    <a asp-controller="Booking"
+                                       asp-action="FinalizeBooking"
+                                       asp-route-resortId="@resort.Id"
+                                       asp-route-checkInDate="@Model.CheckInDate"
+                                       asp-route-nights="@Model.Nights"
+                                       class="btn btn-success form-control">
+                                        Book
+                                    </a>
+                                }
+                            </div>
+
+                            <!-- Info -->
+                            <div class="col-4">
+                                <span>Max Occupancy: @resort.Occupancy adults</span><br />
+                                <span>Resort Size: @resort.Sqft sqft</span>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="col-4 text-end">
+                                <span class="text-warning fw-bold" style="font-size: 1.5rem;">
+                                    USD
+                                    <span style="border-bottom: 1px solid #ff6a00;">
+                                        @resort.Price.ToString("C")
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resort Modal -->
+            <div class="modal fade" id="resortModal-@resort.Id" tabindex="-1"
+                 aria-labelledby="resortModalLabel-@resort.Id" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content border border-1 rounded-2">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-4 text-success" id="resortModalLabel-@resort.Id">Resort Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body p-3">
+                            <partial name="_ResortDetail" model="resort" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <a asp-controller="Home"
+                               asp-action="GeneratePPTExport"
+                               asp-route-id="@resort.Id"
+                               class="btn btn-outline-warning">
+                                <i class="bi bi-file-earmark-ppt"></i> Download Resort PPT
+                            </a>
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
