@@ -1,0 +1,15 @@
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\bin\Debug\net8.0\ParadisePlanner.Application.deps.json
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\bin\Debug\net8.0\ParadisePlanner.Application.dll
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\bin\Debug\net8.0\ParadisePlanner.Application.pdb
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.AssemblyInfoInputs.cache
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.AssemblyInfo.cs
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.csproj.CoreCompileInputs.cache
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.dll
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\refint\ParadisePlanner.Application.dll
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.pdb
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ref\ParadisePlanner.Application.dll
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\bin\Debug\net8.0\ParadisePlanner.Domain.dll
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\bin\Debug\net8.0\ParadisePlanner.Domain.pdb
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\ParadisePlanner.Application.csproj.AssemblyReference.cache
+E:\Asp Core\ParadisePlannerResorts\ParadisePlanner.Application\obj\Debug\net8.0\Paradise.19C742F8.Up2Date
